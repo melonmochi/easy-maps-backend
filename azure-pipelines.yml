@@ -62,4 +62,4 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
