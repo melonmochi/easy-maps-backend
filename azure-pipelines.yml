@@ -47,5 +47,5 @@ steps:
 
 
 - script: |
-    pytest
+    python -m pytest
   displayName: 'Run Unit tests'
