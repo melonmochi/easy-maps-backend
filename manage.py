@@ -1,5 +1,5 @@
 from flask_script import Server, Manager
-from app import create_app
+from src.app import create_app
 
 app = create_app()
 manager = Manager(app)
