@@ -45,7 +45,16 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install prerequisites'
 
+- script: |
+    flake8 .
+  displayName: 'Run lint tests'
 
 - script: |
-    python -m pytest
-  displayName: 'Run Unit tests'
+    python -m pytest --doctest-modules --junitxml=junit/test-results.xml --cov=src --cov-report=
+  displayName: 'Run unit tests'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
