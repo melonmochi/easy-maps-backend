@@ -50,7 +50,7 @@ steps:
   displayName: 'Run lint tests'
 
 - script: |
-    python -m pytest --doctest-modules --junitxml=junit/test-results.xml --cov=src --cov-report=html --cov-report=xml
+    python -m pytest --doctest-modules --junitxml=junit/test-results.xml --cov=src --cov-report=xml
   displayName: 'Run unit tests'
 
 - task: PublishTestResults@2
@@ -62,5 +62,4 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
     reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
